@@ -1,0 +1,42 @@
+{
+  "name": "game-room-management",
+  "version": "1.0.0",
+  "description": "Game Room Client Management Desktop App for 10 PS5 Devices",
+  "main": "main.cjs",
+  "type": "module",
+  "scripts": {
+    "start": "electron .",
+    "server": "node server.js",
+    "build-client": "cd client && npm run build",
+    "package": "electron-builder build --win"
+  },
+  "build": {
+    "appId": "com.gameroom.manager",
+    "productName": "Game Room Management",
+    "directories": {
+      "output": "release"
+    },
+    "win": {
+      "target": [
+        "nsis",
+        "portable"
+      ]
+    },
+    "files": [
+      "main.cjs",
+      "server.js",
+      "db.js",
+      "database.sqlite",
+      "public/**/*"
+    ]
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "sqlite3": "^5.1.7"
+  },
+  "devDependencies": {
+    "electron": "^31.0.0",
+    "nodemon": "^3.1.0"
+  }
+}
