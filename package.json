@@ -1,6 +1,6 @@
 {
   "name": "game-room-management",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Game Room Client Management Desktop App for 10 PS5 Devices",
   "main": "main.cjs",
   "type": "module",
