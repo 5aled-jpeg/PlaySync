@@ -193,19 +193,17 @@ app.get('/api/money/stats', async (req, res) => {
     `);
     const totalPaid = paidSum.total || 0;
 
-    // 2. Today's paid revenue (sum of transactions today)
-    const todayStr = new Date().toISOString().split('T')[0];
+    // 2. Shift's paid revenue (sum of transactions without 12AM reset)
     const todayPaidSum = await dbQuery.get(`
-      SELECT SUM(amount) as total FROM transactions 
-      WHERE created_at LIKE ?
-    `, [`${todayStr}%`]);
+      SELECT SUM(amount) as total FROM transactions
+    `);
     const todayPaid = todayPaidSum.total || 0;
 
-    // 3. Today's pending debts (sum of unpaid debts created today)
+    // 3. Shift's pending debts (sum of unpaid debts without 12AM reset)
     const todayDebtsSum = await dbQuery.get(`
       SELECT SUM(amount) as total FROM debts 
-      WHERE created_at LIKE ? AND status = 'unpaid'
-    `, [`${todayStr}%`]);
+      WHERE status = 'unpaid'
+    `);
     const todayDebts = todayDebtsSum.total || 0;
 
     // 4. Transaction list with game and device names

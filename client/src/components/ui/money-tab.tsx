@@ -198,7 +198,7 @@ export function MoneyTab() {
             >
               <div className="absolute -top-10 -right-10 w-32 h-32 rounded-full bg-emerald-500/5 blur-3xl" />
               <div className="flex justify-between items-start mb-4">
-                <span className="text-zinc-500 dark:text-white/40 text-xs font-semibold uppercase tracking-wider">Today's Cash Income</span>
+                <span className="text-zinc-500 dark:text-white/40 text-xs font-semibold uppercase tracking-wider">Shift's Cash Income</span>
                 <div className="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400">
                   <DollarSign className="w-5 h-5" />
                 </div>
@@ -220,7 +220,7 @@ export function MoneyTab() {
             >
               <div className="absolute -top-10 -right-10 w-32 h-32 rounded-full bg-red-500/5 blur-3xl" />
               <div className="flex justify-between items-start mb-4">
-                <span className="text-zinc-500 dark:text-white/40 text-xs font-semibold uppercase tracking-wider">Today's Unpaid Debts</span>
+                <span className="text-zinc-500 dark:text-white/40 text-xs font-semibold uppercase tracking-wider">Shift's Unpaid Debts</span>
                 <div className="w-10 h-10 rounded-xl bg-[#9A031E]/15 border border-[#9A031E]/30 flex items-center justify-center text-red-400">
                   <Landmark className="w-5 h-5" />
                 </div>
@@ -229,7 +229,7 @@ export function MoneyTab() {
                 {formatCurrency(stats.todayDebts)}
               </h2>
               <span className="text-[10px] text-red-400/80 font-medium uppercase tracking-wider flex items-center gap-1 mt-2">
-                ⚠️ Pending debtor ledgers created today
+                ⚠️ Pending debtor ledgers created this shift
               </span>
             </motion.div>
 
@@ -310,8 +310,8 @@ export function MoneyTab() {
             <div className="lg:col-span-2 bg-white/[0.01] border border-zinc-200 dark:border-white/5 rounded-[28px] p-6 flex flex-col gap-4">
               <div className="flex justify-between items-start">
                 <div>
-                  <h3 className="text-lg font-semibold text-zinc-900 dark:text-white tracking-tight">Daily Transaction Logs</h3>
-                  <p className="text-xs text-zinc-500 dark:text-white/40">Audit list of all payments completed today.</p>
+                  <h3 className="text-lg font-semibold text-zinc-900 dark:text-white tracking-tight">Shift Transaction Logs</h3>
+                  <p className="text-xs text-zinc-500 dark:text-white/40">Audit list of all payments completed this shift.</p>
                 </div>
 
                 {stats.transactions.length > 0 && (
@@ -327,7 +327,7 @@ export function MoneyTab() {
 
               {stats.transactions.length === 0 ? (
                 <div className="py-16 text-center border border-dashed border-zinc-200 dark:border-white/5 rounded-[20px] text-zinc-500 dark:text-white/20 text-xs">
-                  No transaction records logged today yet.
+                  No transaction records logged this shift yet.
                 </div>
               ) : (
                 <div className="overflow-x-auto max-h-[350px] pr-1 scrollbar-thin scrollbar-thumb-white/10 scrollbar-track-transparent">
